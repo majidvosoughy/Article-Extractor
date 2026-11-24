@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: Vazirmatn, "IRANSans", Tahoma, Arial, sans-serif;
+      width: 300px;
+      margin: 0;
+      padding: 16px;
+      background: linear-gradient(180deg, #f5f8ff 0%, #ffffff 100%);
+      color: #1f2937;
+      font-size: 13px;
+    }
+    .title {
+      margin: 0 0 14px;
+      font-size: 15px;
+      font-weight: bold;
+      text-align: center;
+      color: #1e293b;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e5e9f2;
+      border-radius: 12px;
+      padding: 12px 14px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+    }
+    label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      padding: 6px 0;
+      user-select: none;
+    }
+    input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      accent-color: #2563eb;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    button {
+      margin-top: 14px;
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      padding: 13px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      transition: transform .15s, box-shadow .15s;
+    }
+    button:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(37, 99, 235, 0.38); }
+    button:active { transform: translateY(0); }
+    button:disabled { opacity: .65; cursor: wait; transform: none; }
+    #status { margin-top: 10px; min-height: 18px; text-align: center; line-height: 1.7; font-size: 12px; }
+    #status.ok { color: #15803d; }
+    #status.err { color: #c62828; }
+    .footer {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid #e5e9f2;
+      text-align: center;
+      font-size: 12px;
+      color: #64748b;
+      direction: ltr;
+    }
+    .footer a { color: #2563eb; font-weight: bold; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h4 class="title">📄 استخراج هدینگ و متن مقاله</h4>
+
+  <div class="card">
+    <label><input type="checkbox" id="optUrl" checked> درج آدرس صفحه در ابتدای فایل</label>
+    <label><input type="checkbox" id="optTags" checked> نمایش نوع تگ هدینگ‌ها <bdi dir="ltr">(H1, H2, ...)</bdi></label>
+    <label><input type="checkbox" id="optLinks" checked> حفظ لینک‌های داخل متن</label>
+    <label><input type="checkbox" id="optImages"> شامل تصاویر</label>
+  </div>
+
+  <button id="extractBtn">استخراج و دانلود Word</button>
+  <div id="status"></div>
+
+  <div class="footer">
+    Powered by: <a href="https://t.me/majidvosoughy" id="authorLink" target="_blank">Majid Vosoughy</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
